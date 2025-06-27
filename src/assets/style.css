@@ -1,0 +1,1186 @@
+/* style.css */
+
+/* CSS Variables for colors */
+:root {
+    --primary-purple: #4F46E5; /* Indigo-600 equivalent */
+    --primary-purple-dark: #4338CA; /* Indigo-700 equivalent */
+    --light-bg-gradient-start: #F9FAFB; /* Very light grey/off-white */
+    --light-bg-gradient-end: #F0F3F6; /* Slightly darker light grey/blue */
+    --text-dark: #1F2937; /* Gray-800 equivalent */
+    --text-medium: #4B5563; /* Gray-600 equivalent */
+    --border-light: #E5E7EB; /* Gray-200 equivalent */
+    --icon-bg-blue: #E0EEFF; /* Light blue for child icon */
+    --icon-color-blue: #2563EB; /* Darker blue for child icon */
+    --icon-bg-green: #E0FFE0; /* Light green for parent icon */
+    --icon-color-green: #10B981; /* Darker green for parent icon */
+    --icon-bg-purple: #F3E8FF; /* Light purple for teacher icon */
+    --icon-color-purple: #7C3AED; /* Darker purple for teacher icon */
+    --input-border: #D1D5DB; /* Gray-300 for input borders */
+    --input-focus-border: #6366F1; /* Indigo-500 for input focus */
+    --sidebar-bg: #F8F8FA; /* Light grey for sidebar */
+    --sidebar-border: #E0E0E0; /* Border for sidebar */
+    --nav-item-hover: #EEF2FF; /* Light indigo for nav hover */
+    --nav-item-active: #E8F0FE; /* Slightly darker light indigo for active */
+    --logout-bg: #FEE2E2; /* Red-100 */
+    --logout-color: #EF4444; /* Red-500 */
+    --chart-placeholder-bg: #E2E8F0; /* Slate-200 for chart area */
+    --edit-button-bg: #4CAF50; /* Green */
+    --edit-button-hover: #45a049;
+    --delete-button-bg: #f44336; /* Red */
+    --delete-button-hover: #da190b;
+    --form-section-bg: #FFFFFF;
+    --form-section-border: #E0E0E0;
+    --form-section-shadow: rgba(0, 0, 0, 0.08);
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base styles for all containers in Vue components */
+.container-base {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, var(--light-bg-gradient-start), var(--light-bg-gradient-end));
+    overflow: hidden;
+    padding-bottom: 2rem; /* Space for the cards */
+}
+
+/* Header styles (shared across pages) */
+.header-base {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 1.5rem;
+    max-width: 1200px;
+}
+
+.logo-section-base {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-img-base {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+}
+
+.app-title-base {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.auth-buttons-base {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-base {
+    padding: 0.25rem 1rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.btn-login-base {
+    background-color: transparent;
+    color: var(--primary-purple);
+    border: 1px solid var(--primary-purple);
+}
+
+.btn-login-base:hover {
+    background-color: #EEF2FF;
+}
+
+.btn-signup-base {
+    background-color: var(--primary-purple);
+    color: white;
+    border: 1px solid var(--primary-purple);
+}
+
+.btn-signup-base:hover {
+    background-color: var(--primary-purple-dark);
+}
+
+/* Main Content (Landing Page specific) */
+.main-landing {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 1rem;
+    max-width: 900px;
+}
+.content-logo{
+    width:150px;
+    height:150px;
+    margin:15px;
+}
+
+.piggy-img-landing {
+  width: 30rem;
+  height: 20rem;
+  margin-bottom: 1rem;
+
+  border: 4px solid #ccc;     /* Border width and color */
+  border-radius: 1rem;        /* Rounded corners */
+  object-fit: cover;          /* Ensure image fits nicely */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: adds soft shadow */
+}
+.child-logo-images{
+    width:100px;
+    height:100px;
+    margin-bottom:1rem;
+}
+
+
+.main-heading-landing {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.subtext-landing {
+    color: var(--text-medium);
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    max-width: 48rem;
+}
+
+.action-buttons-landing {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 4rem;
+}
+
+.btn-action-landing {
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-get-started-landing {
+    background-color: var(--primary-purple);
+    color: white;
+    border: 1px solid var(--primary-purple);
+}
+
+.btn-get-started-landing:hover {
+    background-color: var(--primary-purple-dark);
+    transform: translateY(-2px);
+}
+
+.btn-watch-demo-landing {
+    background-color: white;
+    color: var(--primary-purple);
+    border: 1px solid var(--primary-purple);
+}
+
+.btn-watch-demo-landing:hover {
+    background-color: #EEF2FF;
+    transform: translateY(-2px);
+}
+
+.btn-action-landing svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+/* Features Section (Landing Page specific) */
+.features-grid-landing {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 1rem;
+}
+
+.feature-card-landing {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid var(--border-light);
+}
+
+.icon-wrapper-landing {
+    padding: 0.75rem;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-wrapper-landing svg {
+    width: 2rem;
+    height: 2rem;
+    stroke-width: 2;
+}
+
+.icon-wrapper-landing.blue {
+    background-color: var(--icon-bg-blue);
+}
+.icon-wrapper-landing.blue svg {
+    color: var(--icon-color-blue);
+}
+
+.icon-wrapper-landing.green {
+    background-color: var(--icon-bg-green);
+}
+.icon-wrapper-landing.green svg {
+    color: var(--icon-color-green);
+}
+
+.icon-wrapper-landing.purple {
+    background-color: var(--icon-bg-purple);
+}
+.icon-wrapper-landing.purple svg {
+    color: var(--icon-color-purple);
+}
+
+.feature-title-landing {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.feature-description-landing {
+    color: var(--text-medium);
+    font-size: 0.875rem;
+}
+
+/* Auth Page Specific Styles */
+.auth-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem;
+    max-width: 600px; /* Increased width for the form container */
+}
+
+.auth-card {
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 10px -2px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    text-align: center;
+}
+
+.auth-title {
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 700; /* font-bold */
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+}
+
+.role-selection-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.role-button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--primary-purple);
+    border: 1px solid var(--primary-purple);
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.role-button.active,
+.role-button:hover {
+    background-color: var(--primary-purple);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    text-align: left;
+    /* Removed fixed width to allow flex-basis to work, if using Flexbox for multiple columns */
+}
+
+.form-label {
+    display: block;
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 500; /* font-medium */
+    color: var(--text-medium);
+    margin-bottom: 0.5rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--input-border);
+    font-size: 1rem;
+    color: var(--text-dark);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--input-focus-border);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2); /* ring-indigo-200 */
+}
+
+.auth-submit-button {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-purple);
+    color: white;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.auth-submit-button:hover {
+    background-color: var(--primary-purple-dark);
+    transform: translateY(-2px);
+}
+
+.auth-link {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: var(--primary-purple);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.auth-link:hover {
+    text-decoration: underline;
+}
+
+/* Dashboard Specific Styles */
+.dashboard-layout {
+    display: flex;
+    width: 100%;
+    min-height: calc(100vh - 80px); /* Adjust based on header height (approx 80px) */
+    background-color: white; /* Changed to white for a cleaner look */
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 10px -2px rgba(0, 0, 0, 0.05);
+    margin-top: 1rem;
+    max-width: 1400px; /* Increased max-width for dashboard */
+    flex-grow: 1;
+}
+
+.sidebar {
+    width: 280px; /* Slightly wider sidebar for better spacing */
+    background: linear-gradient(180deg, var(--sidebar-bg), #F0F3F6); /* Subtle gradient for depth */
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid var(--sidebar-border);
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.05); /* More prominent shadow */
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem; /* Increased gap between nav items */
+}
+
+.nav-item {
+    padding: 0.85rem 1.25rem; /* More padding for a softer button feel */
+    border-radius: 0.65rem; /* More rounded corners */
+    color: var(--text-medium);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease-out; /* Smooth transition */
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem; /* Increased space between icon and text */
+    border: 1px solid transparent; /* Default transparent border */
+}
+
+.nav-item:hover {
+    background-color: var(--nav-item-hover);
+    color: var(--primary-purple);
+    transform: translateX(5px); /* Subtle hover effect */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.nav-item.active {
+    background-color: var(--nav-item-active);
+    color: var(--primary-purple);
+    font-weight: 600;
+    border: 1px solid var(--primary-purple);
+    box-shadow: 0 3px 8px rgba(79, 70, 229, 0.2); /* Highlighted shadow for active */
+}
+
+.logout-button {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: var(--logout-bg);
+    color: var(--logout-color);
+    border: 1px solid var(--logout-color);
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s, color 0.2s;
+    margin-top: 2rem; /* More space from last nav item */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.logout-button:hover {
+    background-color: var(--logout-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px -2px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-content {
+    flex-grow: 1;
+    padding: 2.5rem 3rem; /* Increased padding */
+    background-color: var(--light-bg-gradient-start); /* Light gradient background */
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    overflow-y: auto; /* Enable scrolling for content */
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.02); /* Subtle inner shadow */
+}
+
+.dashboard-header {
+    font-size: 2.25rem; /* text-4xl */
+    font-weight: 800; /* font-extrabold */
+    color: var(--text-dark);
+    margin-bottom: 2rem; /* More space below header */
+    text-align: left;
+    position: relative; /* For underline effect */
+    padding-bottom: 0.5rem;
+}
+.dashboard-header::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px; /* Short underline */
+    height: 4px;
+    background-color: var(--primary-purple);
+    border-radius: 2px;
+}
+
+
+.info-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Slightly wider min width */
+    gap: 1.75rem; /* Increased gap */
+    margin-bottom: 2.5rem;
+}
+
+.info-card {
+    background: linear-gradient(145deg, white, var(--light-bg-gradient-end)); /* Subtle gradient for cards */
+    padding: 1.75rem; /* Increased padding */
+    border-radius: 1rem; /* More rounded corners */
+    text-align: center;
+    box-shadow: 0 6px 15px -3px rgba(0,0,0,0.1), 0 3px 8px -1px rgba(0,0,0,0.05); /* Enhanced shadow */
+    border: 1px solid var(--border-light);
+    transition: transform 0.2s ease-out;
+}
+.info-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.info-card h3 {
+    font-size: 1.35rem; /* Slightly larger */
+    font-weight: 700; /* Bolder */
+    color: var(--primary-purple);
+    margin-bottom: 0.75rem;
+}
+
+.info-card p {
+    font-size: 1.8rem; /* Larger value */
+    font-weight: 800; /* Extra bold */
+    color: var(--text-dark);
+}
+
+/* Card for Goals, Spends, Pocket Money, Challenges */
+.content-card {
+    background-color: white;
+    border: 1px solid var(--border-light);
+    border-radius: 1rem; /* More rounded */
+    padding: 2rem; /* Increased padding */
+    margin-bottom: 2rem; /* More space */
+    box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.1), 0 4px 8px -2px rgba(0, 0, 0, 0.05);
+}
+
+.content-card h3 {
+    font-size: 1.6rem; /* Larger heading */
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+.content-card h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px; /* Short underline */
+    height: 3px;
+    background-color: var(--primary-purple);
+    border-radius: 1.5px;
+}
+
+.chart-placeholder {
+    background-color: var(--chart-placeholder-bg);
+    border-radius: 0.75rem;
+    min-height: 250px; /* Ample space for charts */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-medium);
+    font-size: 1.1rem;
+    font-style: italic;
+    border: 2px dashed var(--border-light);
+    margin-top: 1rem;
+}
+
+.progress-bar-container {
+    width: 100%;
+    background-color: var(--border-light);
+    border-radius: 9999px; /* Full rounded corners */
+    height: 12px; /* Slightly thicker */
+    margin-top: 0.75rem;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(to right, #6D28D9, #8B5CF6); /* Deeper purple gradient */
+    border-radius: 9999px;
+    width: 0%; /* Will be set by Vue data */
+    transition: width 0.7s ease-in-out; /* Slower, smoother transition */
+}
+
+/* Styles for the edit/delete action buttons within list items */
+.actions {
+    display: flex;
+    gap: 0.75rem; /* Spacing between buttons */
+    margin-top: 0.5rem; /* For small screens */
+    align-items: center; /* Align buttons vertically */
+}
+
+.actions button {
+    padding: 0.5rem 1rem; /* More padding */
+    border-radius: 0.6rem; /* More rounded */
+    font-size: 0.9rem; /* Slightly larger font */
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border: none; /* No default border */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    color: white; /* Default text color for action buttons */
+}
+
+.actions .btn-edit {
+    background-color: var(--edit-button-bg); /* Green for Edit */
+}
+
+.actions .btn-edit:hover {
+    background-color: var(--edit-button-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.actions .btn-delete {
+    background-color: var(--delete-button-bg); /* Red for Delete */
+}
+
+.actions .btn-delete:hover {
+    background-color: var(--delete-button-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+
+.button-group-top-right {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem; /* More space */
+}
+
+.button-group-top-right .btn-add {
+    background-color: var(--primary-purple);
+    color: white;
+    padding: 0.8rem 1.6rem; /* Increased padding */
+    border-radius: 0.7rem; /* More rounded */
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 5px 15px -3px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+}
+
+.button-group-top-right .btn-add:hover {
+    background-color: var(--primary-purple-dark);
+    transform: translateY(-3px); /* More pronounced lift */
+    box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* Styles for Forms within Dashboard Views (e.g., Add Goal, Add Spend) */
+.form-section {
+    background-color: var(--form-section-bg);
+    border: 1px solid var(--form-section-border);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 20px -5px var(--form-section-shadow);
+    max-width: 900px; /* Increased width for forms */
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left; /* Align form labels/inputs to the left */
+}
+
+.form-section-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+.form-section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--primary-purple);
+    border-radius: 1.5px;
+}
+
+.form-group-dashboard {
+    margin-bottom: 1.25rem;
+}
+
+.form-label-dashboard {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-medium);
+    margin-bottom: 0.6rem;
+}
+
+.form-input-dashboard {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border-radius: 0.6rem;
+    border: 1px solid var(--input-border);
+    font-size: 1rem;
+    color: var(--text-dark);
+    background-color: white;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input-dashboard:focus {
+    outline: none;
+    border-color: var(--input-focus-border);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+}
+
+.form-row-dashboard {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.form-row-dashboard .form-group-dashboard {
+    flex: 1; /* Distribute space evenly */
+    margin-bottom: 0; /* Reset margin for flex item */
+}
+
+.form-submit-button-dashboard {
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-purple);
+    color: white;
+    border-radius: 0.7rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 5px 15px -3px rgba(0, 0, 0, 0.15);
+    border: none;
+}
+
+.form-submit-button-dashboard:hover {
+    background-color: var(--primary-purple-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.2);
+}
+
+.challenge-tip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #FFEFD5, #FFDAB9); /* Peach Puff to Navajo White */
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-top: 2rem;
+}
+
+/* Text Content Styling */
+.challenge-tip h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.challenge-tip p {
+  font-size: 1rem;
+  color: #555;
+  max-width: 500px;
+  line-height: 1.5;
+}
+
+/* Image Styling */
+.challenge-tip img {
+  width: 150px;
+  height: auto;
+  object-fit: contain;
+}
+
+.challenge-weekly {
+    background: linear-gradient(135deg, #E0F7FA, #B2EBF2); /* Keep existing background */
+    padding: 1.75rem;
+    border-radius: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #80DEEA; /* Cyan-300 */
+
+    display: flex;                /* <-- Enable flex layout */
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.challenge-weekly h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #00BCD4; /* Cyan-500 */
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* Optional: Wrap text content in a div for better control */
+.challenge-weekly .text-content {
+    flex: 1;
+}
+.text-content p{
+    margin-top: 1rem;
+}
+
+/* Image on the right */
+.challenge-weekly img {
+    width: 150px;
+    height: auto;
+    object-fit: contain;
+}
+
+.challenge-past-tips {
+    background-color: white;
+    padding: 1.75rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-light);
+    text-align: left;
+    display: flex;                    /* Add flex layout */
+    justify-content: space-between;  /* Space between text and image */
+    align-items: center;             /* Align items vertically */
+    gap: 1.5rem; 
+}
+.challenge-past-tips h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.challenge-past-tips ul {
+    list-style: none;
+    padding-left: 0;
+}
+.challenge-past-tips li {
+    font-size: 1rem;
+    color: var(--text-medium);
+    margin-bottom: 0.7rem;
+    position: relative;
+    padding-left: 1.5em; /* Space for custom bullet */
+}
+.challenge-past-tips li::before {
+    content: '⭐'; /* Star emoji bullet point */
+    position: absolute;
+    left: 0;
+    font-size: 1em;
+    line-height: 1;
+}
+.challenge-past-tips .text-content {
+    flex: 1;                          /* Take available space */
+}
+.challenge-past-tips img {
+    width: 160px;                      /* Adjust size as needed */
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* Pocket Money Specific Styles - Compact Version */
+.piggy-bank-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 fixed columns */
+    gap: 1.5rem;
+    justify-content: center;
+    margin: 2rem 1rem;
+}
+
+.piggy-bank-card {
+    background-color: white;
+    border: 1px solid var(--border-light);
+    border-radius: 0.8rem;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 12px -4px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease-out;
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+.piggy-bank-card:hover {
+    transform: translateY(-3px);
+}
+
+.piggy-bank-icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 0.5rem;
+    color: var(--primary-purple);
+}
+
+.piggy-bank-card h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.piggy-bank-card p {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--primary-purple);
+    margin-bottom: 0.5rem;
+}
+
+/* ------------------------------------- */
+/* ADDED/MODIFIED STYLES FOR GRID VIEW */
+/* ------------------------------------- */
+
+.card-grid-dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive columns */
+    gap: 2rem; /* Gap between grid items */
+    margin-top: 1.5rem; /* Space below the header */
+}
+
+.card-item-dashboard {
+    background-color: white;
+    border: 1px solid var(--border-light);
+    border-radius: 1rem; /* Consistent rounded corners */
+    padding: 1.5rem; /* Adequate padding */
+    box-shadow: 0 6px 15px -3px rgba(0,0,0,0.1), 0 3px 8px -1px rgba(0,0,0,0.05); /* Enhanced shadow */
+    display: flex; /* Use flexbox for internal layout */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: space-between; /* Push actions to the bottom */
+    transition: transform 0.2s ease-out; /* Hover effect */
+}
+
+.card-item-dashboard:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.card-item-dashboard h4 {
+    font-size: 1.35rem; /* Slightly larger goal name */
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; /* Space between icon and text */
+}
+
+.card-item-dashboard .content-logo {
+    width: 2rem; /* Adjust icon size for better fit */
+    height: 2rem;
+    margin: 0; /* Remove existing margin */
+}
+
+.card-item-dashboard p {
+    font-size: 0.95rem; /* Slightly larger description */
+    color: var(--text-medium);
+    margin-bottom: 1rem;
+    flex-grow: 1; /* Allow description to take available space */
+}
+
+.card-item-dashboard p.font-semibold {
+    font-size: 1.5rem; /* Larger amount display */
+    font-weight: 800; /* Bolder amount */
+    color: #10B981; /* Green-600 */
+    margin-bottom: 0.75rem;
+}
+
+.card-item-dashboard .progress-bar-container {
+    height: 10px; /* Slightly thinner progress bar for cards */
+    margin-top: 0.5rem;
+}
+
+.card-item-dashboard .progress-bar-fill {
+    background: linear-gradient(to right, #34D399, #10B981); /* Green gradient for progress */
+}
+
+.card-item-dashboard .text-sm.text-gray-500.mt-2 {
+    margin-top: 0.5rem; /* Adjust margin for deadline */
+    font-size: 0.85rem;
+}
+
+.card-item-dashboard .actions {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 0.75rem;
+    margin-top: 1.5rem; /* Space from content above */
+}
+
+/*
+  Removing or adjusting previous .card-item-dashboard or .card-grid-dashboard
+  styles if they conflict with the new grid layout.
+  Based on your provided CSS, the above additions will introduce the grid
+  behavior and card styling without major conflicts.
+*/
+
+/* ------------------------------------- */
+/* END ADDED/MODIFIED STYLES */
+/* ------------------------------------- */
+
+/* Responsive adjustments */
+@media (min-width: 768px) { /* md breakpoint */
+    .features-grid-landing {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .main-heading-landing {
+        font-size: 3rem;
+    }
+    .header-base {
+        padding: 1.5rem 4rem;
+    }
+    .dashboard-layout {
+        flex-direction: row; /* Sidebar and content side-by-side */
+    }
+    .dashboard-content {
+        padding: 2.5rem; /* More padding on larger screens */
+    }
+    .auth-container {
+        padding: 2rem;
+    }
+}
+@media (min-width: 1024px) { /* lg breakpoint */
+    .main-heading-landing {
+        font-size: 3.75rem;
+    }
+    .dashboard-layout {
+        max-width: 1450px;
+        width: 1450px; /* Even wider dashboard on large screens */
+    }
+}
+@media (max-width: 767px) { /* Mobile specific adjustments */
+    .dashboard-layout {
+        flex-direction: column; /* Stack sidebar and content */
+        border-radius: 0; /* No border radius on small screens */
+        box-shadow: none;
+    }
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--sidebar-border);
+        border-radius: 0;
+        padding: 1rem;
+        flex-direction: row; /* Horizontal nav for mobile */
+        overflow-x: auto; /* Scrollable nav */
+        white-space: nowrap; /* Prevent wrapping */
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .sidebar-nav {
+        flex-direction: row;
+        gap: 0.5rem;
+        flex-grow: 1;
+    }
+    .nav-item {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.85rem;
+        gap: 0.5rem;
+    }
+    .logout-button {
+        display: none; /* Hide logout button on small screens (can be moved to profile page later) */
+    }
+    .dashboard-content {
+        border-radius: 0;
+        padding: 1.5rem;
+    }
+    .dashboard-header {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+    .info-cards-grid {
+        grid-template-columns: 1fr; /* Stack cards on mobile */
+    }
+    .content-card {
+        padding: 1.5rem;
+    }
+    .content-card h3 {
+        font-size: 1.4rem;
+    }
+    .form-section {
+        padding: 1.5rem;
+        width: 250px;
+    }
+    .form-submit-button-dashboard {
+        padding: 0.65rem 1rem;
+    }
+    .piggy-bank-grid {
+        grid-template-columns: 1fr;
+    }
+    .piggy-bank-card {
+        padding: 1.5rem;
+    }
+    .piggy-bank-icon {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* ---------------------------- */
+/* Spending List - SpendsView */
+/* ---------------------------- */
+.spending-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+}
+
+.spending-item {
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.description {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #333;
+}
+
+.spending-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #666;
+}
+
+.amount {
+  color: #e53935;
+  font-weight: bold;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-edit,
+.btn-delete {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.btn-edit {
+  background-color: #f9a825;
+}
+
+.btn-delete {
+  background-color: #e53935;
+}

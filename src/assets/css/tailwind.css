@@ -1,0 +1,10 @@
+/* src/assets/css/tailwind.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Add any custom global styles here that Tailwind doesn't cover */
+body {
+    margin: 0;
+    /* Font family is applied via index.html link and Tailwind classes like font-inter */
+}
