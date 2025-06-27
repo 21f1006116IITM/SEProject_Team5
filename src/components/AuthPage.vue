@@ -6,96 +6,169 @@
     <div class="auth-card">
       <h2 class="auth-title">{{ capitalizedType }}</h2>
 
-      <!-- Role Selection for Sign Up -->
-      <div v-if="type === 'signup' && !userRole" class="role-selection-buttons">
-        <button
-          class="role-button"
-          :class="{ 'active': selectedRole === 'Teacher' }"
-          @click="selectRole('Teacher')"
-        >
-          Teacher
-        </button>
-        <button
-          class="role-button"
-          :class="{ 'active': selectedRole === 'Child' }"
-          @click="selectRole('Child')"
-        >
-          Child
-        </button>
-        <button
-          class="role-button"
-          :class="{ 'active': selectedRole === 'Parent' }"
-          @click="selectRole('Parent')"
-        >
-          Parent
-        </button>
-      </div>
+      <!-- Dynamic Form for Signup/Login -->
+<form v-if="type === 'signup' || type === 'login'" @submit.prevent="handleSubmit">
+  
+  <!-- Role Selection (only for signup, inside the form) -->
+  <div v-if="type === 'signup'" class="form-group">
+    <label for="role" class="form-label">I am a...</label>
+    <div class="role-selection-container">
+      <label class="role-option">
+        <input 
+          type="radio" 
+          name="role" 
+          value="Teacher" 
+          v-model="formData.role"
+          @change="handleRoleChange"
+        />
+        <span class="role-label">Teacher</span>
+      </label>
+      <label class="role-option">
+        <input 
+          type="radio" 
+          name="role" 
+          value="Child" 
+          v-model="formData.role"
+          @change="handleRoleChange"
+        />
+        <span class="role-label">Child</span>
+      </label>
+      <label class="role-option">
+        <input 
+          type="radio" 
+          name="role" 
+          value="Parent" 
+          v-model="formData.role"
+          @change="handleRoleChange"
+        />
+        <span class="role-label">Parent</span>
+      </label>
+    </div>
+  </div>
 
-      <!-- Back button for role selection -->
-      <button v-if="type === 'signup' && userRole" @click="userRole = null" class="auth-link mb-4">
-        &larr; Back to Role Selection
-      </button>
+  <!-- Name Field (for all signup roles) -->
+  <div v-if="type === 'signup' && formData.role" class="form-group">
+    <label for="name" class="form-label">Full Name</label>
+    <input 
+      type="text" 
+      id="name" 
+      v-model="formData.name" 
+      class="form-input" 
+      placeholder="Enter your full name" 
+      required 
+    />
+  </div>
 
-      <!-- Dynamic Form based on Type and Role -->
-      <form v-if="(type === 'signup' && userRole) || type === 'login'" @submit.prevent="handleSubmit">
-        <!-- Name Field (for all signup roles) -->
-        <div v-if="type === 'signup' && (userRole === 'Teacher' || userRole === 'Child' || userRole === 'Parent')" class="form-group">
-          <label for="name" class="form-label">Name</label>
-          <input type="text" id="name" v-model="formData.name" class="form-input" placeholder="Enter your full name" required />
-        </div>
+  <!-- Email ID Field (for all) -->
+  <div v-if="(type === 'signup' && formData.role) || type === 'login'" class="form-group">
+    <label for="email" class="form-label">Email Address</label>
+    <input 
+      type="email" 
+      id="email" 
+      v-model="formData.email" 
+      class="form-input" 
+      placeholder="e.g., user@example.com" 
+      required 
+    />
+  </div>
 
-        <!-- Email ID Field (for all) -->
-        <div class="form-group">
-          <label for="email" class="form-label">Email ID</label>
-          <input type="email" id="email" v-model="formData.email" class="form-input" placeholder="e.g., user@example.com" required />
-        </div>
+  <!-- Phone Number (only for Teacher signup) -->
+  <div v-if="type === 'signup' && formData.role === 'Teacher'" class="form-group">
+    <label for="phone" class="form-label">Phone Number</label>
+    <input 
+      type="tel" 
+      id="phone" 
+      v-model="formData.phoneNumber" 
+      class="form-input" 
+      placeholder="e.g., +1 (234) 567-8900" 
+      required 
+    />
+  </div>
 
-        <!-- Phone Number (only for Teacher signup) -->
-        <div v-if="type === 'signup' && userRole === 'Teacher'" class="form-group">
-          <label for="phone" class="form-label">Phone Number</label>
-          <input type="tel" id="phone" v-model="formData.phoneNumber" class="form-input" placeholder="e.g., +11234567890" :required="userRole === 'Teacher' && type === 'signup'" />
-        </div>
+  <!-- Class (only for Child signup) -->
+  <div v-if="type === 'signup' && formData.role === 'Child'" class="form-group">
+    <label for="class" class="form-label">Class/Grade</label>
+    <input 
+      type="text" 
+      id="class" 
+      v-model="formData.class" 
+      class="form-input" 
+      placeholder="e.g., 5th Grade, Class 10" 
+      required 
+    />
+  </div>
 
-        <!-- Class (only for Child signup) -->
-        <div v-if="type === 'signup' && userRole === 'Child'" class="form-group">
-          <label for="class" class="form-label">Class</label>
-          <input type="text" id="class" v-model="formData.class" class="form-input" placeholder="e.g., 5th Grade" :required="userRole === 'Child' && type === 'signup'" />
-        </div>
+  <!-- Teacher ID (only for Child signup) -->
+  <div v-if="type === 'signup' && formData.role === 'Child'" class="form-group">
+    <label for="teacherId" class="form-label">Teacher ID (Optional)</label>
+    <input 
+      type="text" 
+      id="teacherId" 
+      v-model="formData.teacherId" 
+      class="form-input" 
+      placeholder="e.g., TID12345" 
+    />
+  </div>
 
-        <!-- Teacher ID (only for Child signup) -->
-        <div v-if="type === 'signup' && userRole === 'Child'" class="form-group">
-          <label for="teacherId" class="form-label">Teacher ID</label>
-          <input type="text" id="teacherId" v-model="formData.teacherId" class="form-input" placeholder="e.g., TID12345" />
-        </div>
+  <!-- Parent ID (only for Child signup) -->
+  <div v-if="type === 'signup' && formData.role === 'Child'" class="form-group">
+    <label for="parentId" class="form-label">Parent ID</label>
+    <input 
+      type="text" 
+      id="parentId" 
+      v-model="formData.parentId" 
+      class="form-input" 
+      placeholder="e.g., PID67890" 
+      required 
+    />
+  </div>
 
-        <!-- Parent ID (only for Child signup) -->
-        <div v-if="type === 'signup' && userRole === 'Child'" class="form-group">
-          <label for="parentId" class="form-label">Parent ID</label>
-          <input type="text" id="parentId" v-model="formData.parentId" class="form-input" placeholder="e.g., PID67890" :required="userRole === 'Child' && type === 'signup'" />
-        </div>
+  <!-- Roll Number (only for Child signup) -->
+  <div v-if="type === 'signup' && formData.role === 'Child'" class="form-group">
+    <label for="rollNumber" class="form-label">Roll Number (Optional)</label>
+    <input 
+      type="text" 
+      id="rollNumber" 
+      v-model="formData.rollNumber" 
+      class="form-input" 
+      placeholder="e.g., R101, 001" 
+    />
+  </div>
 
-        <!-- Roll Number (only for Child signup) -->
-        <div v-if="type === 'signup' && userRole === 'Child'" class="form-group">
-          <label for="rollNumber" class="form-label">Roll Number</label>
-          <input type="text" id="rollNumber" v-model="formData.rollNumber" class="form-input" placeholder="e.g., R101" />
-        </div>
+  <!-- Password Field (common for all login/signup) -->
+  <div v-if="(type === 'signup' && formData.role) || type === 'login'" class="form-group">
+    <label for="password" class="form-label">Password</label>
+    <input 
+      type="password" 
+      id="password" 
+      v-model="formData.password" 
+      class="form-input" 
+      placeholder="Enter your password" 
+      required 
+    />
+  </div>
 
-        <!-- Password Field (common for all login/signup) -->
-        <div class="form-group">
-          <label for="password" class="form-label">Password</label>
-          <input type="password" id="password" v-model="formData.password" class="form-input" placeholder="Enter your password" required />
-        </div>
+  <!-- Re-enter Password Field (common for all signup) -->
+  <div v-if="type === 'signup' && formData.role" class="form-group">
+    <label for="reEnterPassword" class="form-label">Confirm Password</label>
+    <input 
+      type="password" 
+      id="reEnterPassword" 
+      v-model="formData.reEnterPassword" 
+      class="form-input" 
+      placeholder="Re-enter your password" 
+      required 
+    />
+  </div>
 
-        <!-- Re-enter Password Field (common for all signup) -->
-        <div v-if="type === 'signup'" class="form-group">
-          <label for="reEnterPassword" class="form-label">Re-enter Password</label>
-          <input type="password" id="reEnterPassword" v-model="formData.reEnterPassword" class="form-input" placeholder="Re-enter your password" required />
-        </div>
-
-        <button type="submit" class="auth-submit-button">
-          {{ capitalizedType }}
-        </button>
-      </form>
+  <button 
+    type="submit" 
+    class="auth-submit-button"
+    :disabled="type === 'signup' && !formData.role"
+  >
+    {{ capitalizedType }}
+  </button>
+</form>
 
       <!-- Navigation Links -->
       <a v-if="type === 'signup'" href="#" @click.prevent="$emit('navigate', 'login')" class="auth-link">
@@ -242,7 +315,47 @@ export default {
 </script>
 
 <style scoped>
-/* No specific scoped styles needed here, as global styles handle the look. */
+.role-selection-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.role-option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.role-option:hover {
+  border-color: #3b82f6;
+  background-color: #f8fafc;
+}
+
+.role-option input[type="radio"] {
+  margin-right: 0.5rem;
+}
+
+.role-option input[type="radio"]:checked + .role-label {
+  font-weight: 600;
+  color: #3b82f6;
+}
+
+.role-option:has(input[type="radio"]:checked) {
+  border-color: #3b82f6;
+  background-color: #eff6ff;
+}
+
+@media (max-width: 768px) {
+  .role-selection-container {
+    flex-direction: column;
+  }
+}
+
 </style>
 ```
 
