@@ -88,12 +88,14 @@ export default {
 <style scoped>
 /* Ensure any custom button styles are imported or defined here */
 .btn-delete-inline {
-  padding: 0.5rem 1rem;
+  padding: 1rem 1rem;
   border-radius: 0.375rem;
   font-size: 1rem;
   border: none;
   cursor: pointer;
   background-color: #ef4444; /* red-500 */
   color: white;
+  /* gap in buttons */
+  margin-left: 0.5rem;
 }
 </style>

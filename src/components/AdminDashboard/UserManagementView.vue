@@ -82,15 +82,30 @@ export default {
         school: ''
       },
       users: [
-        { id: 1, name: 'Alice Johnson', email: 'alice@example.com', role: 'child', school: 'Maplewood School' },
-        { id: 2, name: 'John Doe', email: 'john.doe@example.com', role: 'parent', school: 'Maplewood School' },
-        { id: 3, name: 'Jane Smith', email: 'jane.smith@example.com', role: 'teacher', school: 'Oakwood Elementary' },
-        { id: 4, name: 'Admin User', email: 'admin@example.com', role: 'admin', school: '' }
-      ],
-      schools: [
-        { id: 1, name: 'Maplewood School' },
-        { id: 2, name: 'Oakwood Elementary' }
-      ]
+  { id: 1, name: 'Ananya Mehta', email: 'ananya.mehta@example.com', role: 'child', school: 'Greenfield Public School' },
+  { id: 2, name: 'Rajesh Mehta', email: 'rajesh.mehta@example.com', role: 'parent', school: 'Greenfield Public School' },
+  { id: 3, name: 'Neha Iyer', email: 'neha.iyer@example.com', role: 'teacher', school: 'Silver Oak High School' },
+  { id: 4, name: 'System Admin', email: 'admin@eduindia.in', role: 'admin', school: '' },
+  { id: 5, name: 'Kabir Singh', email: 'kabir.singh@example.com', role: 'child', school: 'Sunrise International School' },
+  { id: 6, name: 'Poonam Singh', email: 'poonam.singh@example.com', role: 'parent', school: 'Sunrise International School' },
+  { id: 7, name: 'Amit Banerjee', email: 'amit.banerjee@example.com', role: 'teacher', school: 'Riverdale Public School' },
+  { id: 8, name: 'Diya Patel', email: 'diya.patel@example.com', role: 'child', school: 'Bright Future School' },
+  { id: 9, name: 'Mehul Patel', email: 'mehul.patel@example.com', role: 'parent', school: 'Bright Future School' }
+],
+
+schools: [
+  { id: 1, name: 'Greenfield Public School' },
+  { id: 2, name: 'Sunrise International School' },
+  { id: 3, name: 'Silver Oak High School' },
+  { id: 4, name: 'Lotus Valley School' },
+  { id: 5, name: 'Heritage International Academy' },
+  { id: 6, name: 'Gyan Deep Public School' },
+  { id: 7, name: 'Bright Future School' },
+  { id: 8, name: 'Mount Glory School' },
+  { id: 9, name: 'Starlight Academy' },
+  { id: 10, name: 'Riverdale Public School' }
+]
+
     };
   },
   methods: {
@@ -145,4 +160,24 @@ export default {
   background-color: #ef4444; /* red-500 */
   color: white;
 }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  th, td {
+    border: 1px solid #ddd;
+    padding: 12px 16px;
+    text-align: left;
+  }
+  thead {
+    background-color: #e6f0ff;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+  tr:hover {
+    background-color: #f0f8ff;
+  }
 </style>
