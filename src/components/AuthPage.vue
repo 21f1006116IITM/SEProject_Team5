@@ -1,6 +1,4 @@
-# Complete Updated AuthPage.vue
 
-```vue
 <template>
   <div class="auth-container">
     <div class="auth-card">
@@ -255,7 +253,7 @@ export default {
           this.$emit('navigate', 'landing');
         }
       } else if (this.type === 'login') {
-        // **ENHANCED LOGIN LOGIC - This is the new addition**
+       
         // Handle different user types with demo credentials
         if (this.formData.email === 'child@example.com' && this.formData.password === 'password123') {
           alert('Child Login successful! Redirecting to Dashboard.');
@@ -266,7 +264,12 @@ export default {
         } else if (this.formData.email === 'teacher@example.com' && this.formData.password === 'password123') {
           alert('Teacher Login successful! Redirecting to Dashboard.');
           this.$emit('navigate', 'dashboard', 'Teacher');
-        } else {
+        } 
+        else if (this.formData.email === 'admin@example.com' && this.formData.password === 'password123') { // <-- NEW Admin Login
+          this.$emit('navigate', 'dashboard', 'Admin');
+        }
+        
+        else {
           // Check stored children users (existing functionality)
           const storedChildren = JSON.parse(localStorage.getItem('pennywise_children_users') || '[]');
           const foundChild = storedChildren.find(child =>
@@ -311,7 +314,6 @@ export default {
     }
   }
 };
-/* eslint-enable no-unused-vars */
 </script>
 
 <style scoped>
@@ -358,12 +360,4 @@ export default {
 
 </style>
 ```
-
-
-## Demo Credentials for Testing:
-
-- **Child**: `child@example.com` / `password123`
-- **Parent**: `parent@example.com` / `password123`  
-- **Teacher**: `teacher@example.com` / `password123`
-- **Registered Children**: Any child registered through the signup form
 

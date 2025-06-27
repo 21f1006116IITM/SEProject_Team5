@@ -46,7 +46,8 @@
     <div class="content-card">
       <h3 class="text-xl font-semibold mb-4">Activity Engagement</h3>
       <div class="chart-placeholder mb-4">
-        [Chart: Student engagement across different activities]
+        <!-- [Chart: Student engagement across different activities] -->
+        <img src="https://charts.livegap.com/2020/images/paper-en.png" alt="Engagement Chart" />
       </div>
       <div class="activity-stats-grid">
         <div v-for="activity in activityStats" :key="activity.id" class="activity-stat-card">

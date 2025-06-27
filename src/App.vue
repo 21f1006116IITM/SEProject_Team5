@@ -7,10 +7,10 @@
         <img :src="require('./assets/pig-logo.png')" alt="Logo" class="logo-img-base" />
         <h1 class="app-title-base cursor-pointer" @click="goToPage('landing')">PennyWise</h1>
       </div>
-      <div class="auth-buttons-base">
+      <!-- <div class="auth-buttons-base">
         <button class="btn-base btn-login-base" @click="goToPage('login')">Login</button>
         <button class="btn-base btn-signup-base" @click="goToPage('signup')">Sign Up</button>
-      </div>
+      </div> -->
     </header>
 
     <!-- Main Content Area - Conditional Rendering -->
@@ -33,6 +33,9 @@
       <template v-else-if="currentPage === 'teacherDashboard'">
         <TeacherDashboard @navigate="goToPage" />
       </template>
+        <template v-else-if="currentPage === 'adminDashboard'">
+        <AdminDashboard @navigate="goToPage" />
+      </template>
     </main>
 
     <!-- Optional Footer Placeholder if needed -->
@@ -46,7 +49,7 @@ import AuthPage from './components/AuthPage.vue';
 import ChildDashboard from './components/ChildDashboard.vue';
 import ParentDashboard from './components/ParentDashboard.vue';
 import TeacherDashboard from './components/TeacherDashboard.vue';
-
+import AdminDashboard from './components/AdminDashboard.vue';
 export default {
   name: 'App',
   components: {
@@ -54,7 +57,8 @@ export default {
     AuthPage,
     ChildDashboard,
     ParentDashboard,
-    TeacherDashboard
+    TeacherDashboard,
+    AdminDashboard
   },
   data() {
     return {
@@ -72,6 +76,8 @@ export default {
           this.currentPage = 'parentDashboard';
         } else if (role === 'Teacher') {
           this.currentPage = 'teacherDashboard';
+        } else if (role === 'Admin') {
+          this.currentPage = 'adminDashboard';
         }
       } else {
         this.currentPage = pageName;

@@ -1,69 +1,227 @@
 <template>
-  <div class="main-landing">
-    <img :src="require('@/assets/piggy-bank-logo.jpg')" alt="Piggy Bank" class="piggy-img-landing" />
+  <div class="page-container">
+    <main class="content">
+      <!-- Top section with title and picture -->
+      <section class="hero-section">
+        <div class="hero-text">
+          <h1>
+            Learn to <span class="highlight">Save</span>, <span class="highlight">Spend</span> & <span class="highlight">Grow Smart!</span>
+          </h1>
+          <p class="subtitle">
+            Join PennyWise to explore money with super fun games and lessons, perfect for kids, parents, and teachers!
+          </p>
+          
+          <div class="button-group">
+            <button class="button signup-button" @click="$emit('navigate', 'signup', null)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><line x1="19" y1="8" x2="19" y2="14"></line><line x1="22" y1="11" x2="16" y2="11"></line>
+              </svg>
+              <span>Start the Fun!</span>
+            </button>
+            <button class="button login-button" @click="$emit('navigate', 'login', null)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line>
+              </svg>
+              <span>Login & Play</span>
+            </button>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img :src="require('@/assets/piggy-bank-logo.jpg')" alt="Happy PennyWise Piggy" />
+        </div>
+      </section>
 
-    <h2 class="main-heading-landing">
-      Learn to Save, Spend & Grow Smart!
-    </h2>
-    
-    <p class="subtext-landing">
-      Empower children with financial literacy through fun, interactive money management tools designed for kids, parents, and teachers.
-    </p>
-    
-    <div class="action-buttons-landing">
-      <button class="btn-action-landing btn-get-started-landing" @click="$emit('navigate', 'signup', null)">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-          <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l.646-.285A10.435 10.435 0 0010 18c2.305 0 4.47-1.192 5.77-3.176l.647.285a1 1 0 001.168-1.409l-7-14z" />
-        </svg>
-        <span>Get Started Free</span>
-      </button>
-      <button class="btn-action-landing btn-watch-demo-landing" @click="$emit('navigate', 'login', null)">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-        </svg>
-        <span>Watch Demo</span>
-      </button>
-    </div>
-
-    <div class="features-grid-landing">
-      <div class="feature-card-landing">
-        <div class="icon-wrapper-landing blue">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM12 10V6a2 2 0 00-2-2H6a2 2 0 00-2 2v4a2 2 0 002 2h4a2 2 0 002-2z" />
-          </svg>
+      <!-- "Who is it for?" section -->
+      <section class="features-section">
+        <h2>Who loves PennyWise?</h2>
+        <div class="features-grid">
+          <div class="card">
+            <h3>For Little Savers</h3>
+            <p>Fun goals, tracking money, and smart tips just for kids!</p>
+          </div>
+          <div class="card">
+            <h3>For Super Parents</h3>
+            <p>See progress, set allowances, and send happy messages securely!</p>
+          </div>
+          <div class="card">
+            <h3>For Awesome Teachers</h3>
+            <p>Ready-to-use classroom games, fun stats, and lesson plans!</p>
+          </div>
         </div>
-        <h3 class="feature-title-landing">For Children</h3>
-        <p class="feature-description-landing">Fun savings goals, expense tracking, and money tips</p>
-      </div>
-      <div class="feature-card-landing">
-        <div class="icon-wrapper-landing green">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h-4a2 2 0 01-2-2V8H5a2 2 0 00-2 2v10a2 2 0 002 2h14a2 2 0 002-2V10a2 2 0 00-2-2h-4V6a2 2 0 00-2-2H9a2 2 0 00-2 2v2m12 0H7" />
-          </svg>
-        </div>
-        <h3 class="feature-title-landing">For Parents</h3>
-        <p class="feature-description-landing">Monitor progress, set allowances, send encouragement</p>
-      </div>
-      <div class="feature-card-landing">
-        <div class="icon-wrapper-landing purple">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-          </svg>
-        </div>
-        <h3 class="feature-title-landing">For Teachers</h3>
-        <p class="feature-description-landing">Classroom activities, engagement analytics, curriculum</p>
-      </div>
-    </div>
+      </section>
+    </main>
   </div>
 </template>
 
 <script>
 export default {
   name: 'LandingPage',
-  emits: ['navigate'] // Declare the custom event this component emits
+  emits: ['navigate']
 }
 </script>
 
 <style scoped>
-/* Scoped styles (if any) specific to LandingPage. Vue will handle class hashing. */
+
+:root {
+  --primary-color: #7ED957; /* Bright Green */
+  --secondary-color: #64B5F6; /* Sky Blue */
+  --background-color: #FFD54F; /* Sunny Yellow */
+  --text-color: #4A4A4A;
+  --white-color: #FFFFFF;
+}
+
+
+.page-container {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  padding: 3rem 1rem;
+}
+
+.content {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* --- Hero Section (Top Part) --- */
+.hero-section {
+  display: flex;
+  flex-direction: column; /* Stacks image below text on mobile */
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero-text .highlight {
+  color: var(--primary-color);
+}
+
+.hero-text .subtitle {
+  font-size: 1.25rem;
+  color: #777;
+  margin-bottom: 2rem;
+  max-width: 600px; /* Keeps text from getting too wide */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-image img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Buttons --- */
+.button-group {
+  display: flex;
+  flex-direction: column; /* Stacks buttons on mobile */
+  gap: 1rem;
+  align-items: center;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem; /* Big and easy to click */
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--white-color); /* All button text is white */
+  border: none;
+  border-radius: 50px; /* Fun, pill-shaped buttons */
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+  transform: translateY(-4px); /* A little "hop" effect */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+.button svg {
+  stroke: var(--white-color); /* Make sure icon is white */
+}
+
+.signup-button {
+  background-color: var(--secondary-color); /* Blue */
+}
+
+.login-button {
+  background-color: var(--primary-color); /* Green */
+}
+
+
+.features-section {
+  background-color: var(--white-color);
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.features-section h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--secondary-color);
+  margin-bottom: 3rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 column on mobile */
+  gap: 2rem;
+}
+
+.card {
+  padding: 2rem;
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Card grows a little on hover */
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.card:nth-child(1) { background-color: #E3F2FD; } /* Light Blue */
+.card:nth-child(2) { background-color: #E8F5E9; } /* Light Green */
+.card:nth-child(3) { background-color: #F3E5F5; } /* Light Purple */
+
+
+/* --- Responsive Design for Bigger Screens --- */
+@media (min-width: 768px) {
+  .hero-section {
+    flex-direction: row; /* Puts image next to text */
+    text-align: left;
+  }
+
+  .hero-text { flex: 1; }
+  .hero-image { flex: 1; }
+
+  .hero-text .subtitle {
+    margin-left: 0;
+  }
+  
+  .button-group {
+    flex-direction: row; /* Buttons side-by-side */
+    justify-content: flex-start;
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for cards */
+  }
+}
 </style>
