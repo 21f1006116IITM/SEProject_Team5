@@ -22,6 +22,7 @@
       <h3 class="text-xl font-semibold mb-4">Class Progress Overview</h3>
       <div class="chart-placeholder">
         [Placeholder: Student Progress Chart]
+        <img src="https://www.iseesystems.com/resources/help/v3/Content/Resources/images/placeholders06.png" alt="Class Progress Chart" width="1000" height="300" class="hidden">
       </div>
     </div>
 

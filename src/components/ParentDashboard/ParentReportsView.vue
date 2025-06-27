@@ -20,7 +20,7 @@
     <div class="content-card">
       <h3 class="text-xl font-semibold mb-4">Monthly Spending Trends</h3>
       <div class="chart-placeholder">
-        [Chart: Monthly spending trends for all children]
+        <img src="https://sta.laits.utexas.edu/wp-content/uploads/files/charts.png" alt="Monthly Spending Trends Chart" width="1000" height="300">
       </div>
     </div>
 

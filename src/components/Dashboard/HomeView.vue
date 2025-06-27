@@ -21,16 +21,18 @@
     <div class="content-card">
       <h3 class="text-xl font-semibold mb-4">Goal Statistics Over Time</h3>
       <div class="chart-placeholder">
-        [Placeholder: Bar Chart showing Goal Progress over Months]
-        <img src="https://placehold.co/600x250/E2E8F0/64748B?text=Goal+Stats+Chart" alt="Goal Stats Chart Placeholder" class="hidden">
+        <img src="https://www.iseesystems.com/resources/help/v3/Content/Resources/images/placeholders06.png" alt="Goal Stats Chart" width="1000" height="300" class="hidden">
+        <!-- [Placeholder: Bar Chart showing Goal Progress over Months]
+        <img src="https://placehold.co/600x250/E2E8F0/64748B?text=Goal+Stats+Chart" alt="Goal Stats Chart Placeholder" class="hidden"> -->
       </div>
     </div>
 
     <div class="content-card">
       <h3 class="text-xl font-semibold mb-4">Pocket Money & Spend Trends</h3>
       <div class="chart-placeholder">
-        [Placeholder: Line Chart showing Pocket Money Income vs. Spends]
-        <img src="https://placehold.co/600x250/E2E8F0/64748B?text=Income+Vs+Spend+Chart" alt="Income vs Spend Chart Placeholder" class="hidden">
+        <img src="https://sta.laits.utexas.edu/wp-content/uploads/files/charts.png" alt="Income vs Spend Chart" width="1000" height="300">
+        <!-- [Placeholder: Line Chart showing Pocket Money Income vs. Spends]
+        <img src="https://placehold.co/600x250/E2E8F0/64748B?text=Income+Vs+Spend+Chart" alt="Income vs Spend Chart Placeholder" class="hidden"> -->
       </div>
     </div>
 

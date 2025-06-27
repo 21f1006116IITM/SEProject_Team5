@@ -16,7 +16,7 @@
           :class="{ 'active': currentDashboardView === 'classroom' }"
           @click="changeDashboardView('classroom')"
         >
-          <img :src="require('@/assets/target.png')" alt="classroom" class="child-logo-images" />
+          <img :src="require('@/assets/classroom.png')" alt="classroom" class="child-logo-images" />
           Classroom
         </button>
         <button
@@ -24,7 +24,7 @@
           :class="{ 'active': currentDashboardView === 'students' }"
           @click="changeDashboardView('students')"
         >
-          <img :src="require('@/assets/spending.png')" alt="students" class="child-logo-images" />
+          <img :src="require('@/assets/students.png')" alt="students" class="child-logo-images" />
           Students
         </button>
         <button
@@ -32,7 +32,7 @@
           :class="{ 'active': currentDashboardView === 'activities' }"
           @click="changeDashboardView('activities')"
         >
-          <img :src="require('@/assets/wallet.png')" alt="activities" class="child-logo-images" />
+          <img :src="require('@/assets/activities.png')" alt="activities" class="child-logo-images" />
           Activities
         </button>
         <button
@@ -40,7 +40,7 @@
           :class="{ 'active': currentDashboardView === 'reports' }"
           @click="changeDashboardView('reports')"
         >
-          <img :src="require('@/assets/goal.png')" alt="reports" class="child-logo-images" />
+          <img :src="require('@/assets/report.png')" alt="reports" class="child-logo-images" />
           Reports
         </button>
         <button class="logout-button" @click="$emit('navigate', 'landing')">

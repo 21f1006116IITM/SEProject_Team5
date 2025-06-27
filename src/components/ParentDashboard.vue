@@ -16,7 +16,7 @@
           :class="{ 'active': currentDashboardView === 'children' }"
           @click="changeDashboardView('children')"
         >
-          <img :src="require('@/assets/target.png')" alt="children" class="child-logo-images" />
+          <img :src="require('@/assets/children.png')" alt="children" class="child-logo-images" />
           My Children
         </button>
         <button
@@ -24,7 +24,7 @@
           :class="{ 'active': currentDashboardView === 'allowances' }"
           @click="changeDashboardView('allowances')"
         >
-          <img :src="require('@/assets/wallet.png')" alt="allowances" class="child-logo-images" />
+          <img :src="require('@/assets/allowances.png')" alt="allowances" class="child-logo-images" />
           Allowances
         </button>
         <button
@@ -32,7 +32,7 @@
           :class="{ 'active': currentDashboardView === 'reports' }"
           @click="changeDashboardView('reports')"
         >
-          <img :src="require('@/assets/spending.png')" alt="reports" class="child-logo-images" />
+          <img :src="require('@/assets/report.png')" alt="reports" class="child-logo-images" />
           Reports
         </button>
         <button
@@ -40,7 +40,7 @@
           :class="{ 'active': currentDashboardView === 'messages' }"
           @click="changeDashboardView('messages')"
         >
-          <img :src="require('@/assets/goal.png')" alt="messages" class="child-logo-images" />
+          <img :src="require('@/assets/message.png')" alt="messages" class="child-logo-images" />
           Messages
         </button>
         <button class="logout-button" @click="$emit('navigate', 'landing')">

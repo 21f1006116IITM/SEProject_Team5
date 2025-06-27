@@ -1,6 +1,7 @@
 <template>
   <div class="container-base font-inter">
     <!-- Header (always visible) -->
+     <!-- Changed to visble when logged out -->
     <header class="header-base">
       <div class="logo-section-base">
         <img :src="require('./assets/pig-logo.png')" alt="Logo" class="logo-img-base" />
