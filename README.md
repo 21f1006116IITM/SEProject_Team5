@@ -29,4 +29,4 @@ parent@example.com
 teacher@example.com
 admin@example.com
 
-Common password: password123
+Common password: password12345
